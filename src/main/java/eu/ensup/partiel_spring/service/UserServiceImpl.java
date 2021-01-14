@@ -31,6 +31,11 @@ public class UserServiceImpl implements IUserService {
 	public User getUserById(Long id) {		
 		return userRepo.findById(id).get();
 	}
+	
+	@Override
+	public User getUser(User user) {
+		return userRepo.findByLoginAndPassword(user.getLogin(), user.getPassword());
+	}
 
 
 	@Override

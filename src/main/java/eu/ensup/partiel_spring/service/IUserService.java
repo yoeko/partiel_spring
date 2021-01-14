@@ -14,4 +14,6 @@ public interface IUserService {
 
 	void updateUser(User userFound);
 
+	User getUser(User user);
+
 }

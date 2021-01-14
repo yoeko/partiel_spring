@@ -1,6 +1,8 @@
 package eu.ensup.partiel_spring.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -40,6 +42,18 @@ public class UserWebService {
 	@GetMapping("/detail/{id}")
 	public User getUserById(@PathVariable(value = "id") Long id){
 		return userService.getUserById(id);
+	}
+	
+	@PostMapping("/getUser")
+	public Map<String, User> getUser(@Validated @RequestBody User user) {
+		 Map<String,User> map = new HashMap<String, User>();
+         User u = userService.getUser(user);
+         String message = "user";
+
+         map.put(message,u);
+
+
+         return map;
 	}
 	
 	@PostMapping("/create")
