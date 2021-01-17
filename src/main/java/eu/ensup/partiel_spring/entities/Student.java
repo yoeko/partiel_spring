@@ -1,8 +1,8 @@
 package eu.ensup.partiel_spring.entities;
 
-import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -20,16 +20,16 @@ public class Student
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long id;
 	private String firstName;
 	private String lastName;
 	private String mailAddress;
 	private String address;
 	private String numberPhone;
 	private String birthDate;
-
-	@ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-	Collection<Course> courses;
+	
+	@ManyToMany(fetch = FetchType.EAGER)
+	Set<Course> courses = new HashSet<>();
 
 	public Student()
 	{
@@ -47,7 +47,7 @@ public class Student
 	 * @param courses
 	 */
 	public Student(String firstName, String lastName, String mailAddress, String address, String numberPhone,
-			String birthDate, Collection<Course> courses)
+			String birthDate, Set<Course> courses)
 	{
 		super();
 		this.firstName = firstName;
@@ -81,12 +81,12 @@ public class Student
 		this.birthDate = birthDate;
 	}
 
-	public int getId()
+	public Long getId()
 	{
 		return id;
 	}
 
-	public void setId(int id)
+	public void setId(Long id)
 	{
 		this.id = id;
 	}
@@ -141,12 +141,12 @@ public class Student
 		this.numberPhone = numberPhone;
 	}
 
-	public Collection<Course> getCourses()
+	public Set<Course> getCourses()
 	{
 		return courses;
 	}
 
-	public void setCourses(Collection<Course> courses)
+	public void setCourses(Set<Course> courses)
 	{
 		this.courses = courses;
 	}

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import eu.ensup.partiel_spring.entities.Course;
+import eu.ensup.partiel_spring.entities.Student;
 import eu.ensup.partiel_spring.repositories.CourseRepository;
 
 @Service
@@ -28,6 +29,11 @@ public class CourseServiceImpl implements ICourseService {
 	@Override
 	public Course getCourseById(String theme) {
 		return courseRepo.findById(theme).get();
+	}
+	
+	@Override
+	public List<Course> getListCourseByStudent(Student student) {
+		return courseRepo.findByStudents(student);
 	}
 
 
