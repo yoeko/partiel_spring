@@ -47,4 +47,16 @@ public class StudentServiceImpl implements IStudentService {
 		studentRepo.delete(student);
 	}
 
+
+	@Override
+	public Student getByMailAddress(String mail) {
+		return studentRepo.findByMailAddress(mail);		
+	}
+	
+	@Override
+	public List<Student> getStudentByFirstNameAndLastName(String firstName, String lastName) 
+	{
+		return studentRepo.findAllByFirstNameAndLastName(firstName, lastName);
+	}
+
 }

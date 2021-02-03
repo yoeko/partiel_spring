@@ -1,5 +1,7 @@
 package eu.ensup.partiel_spring.controller;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -55,6 +57,19 @@ public class StudentWebService {
 		return student;
 	}
 	
+	@RequestMapping(path = "/getByMail/{mail}", method = RequestMethod.GET)
+	public Student getStudentByMail(@PathVariable(name = "mail") String mail)
+	{
+		Student student = studentService.getByMailAddress(mail);
+		return student;
+	}
+	
+	@RequestMapping(path = "/search/{firstName}/{lastName}", method = RequestMethod.GET)
+	public List<Student> getStudentByFirstNameAndLastName(@PathVariable String firstName, @PathVariable String lastName)
+	{
+		return studentService.getStudentByFirstNameAndLastName(firstName, lastName);
+	}
+	
 	@PostMapping("/create")
 	public void createStudent(@Validated @RequestBody Student student) {
 		studentService.createStudent(student);
@@ -66,10 +81,6 @@ public class StudentWebService {
 		
 		Student studentFound = studentService.findById(id);
 		
-//		Set<Course> studentFoundCourses = studentFound.getCourses();
-//		studentFoundCourses.addAll( student.getCourses() );
-//		studentFound.setCourses( studentFoundCourses );
-		
 		studentFound.setAddress( student.getAddress() );
 		studentFound.setBirthDate( student.getBirthDate() );
 		studentFound.setFirstName( student.getFirstName() );
@@ -78,6 +89,18 @@ public class StudentWebService {
 		studentFound.setNumberPhone( student.getNumberPhone() );
 		
 		studentService.updateStudent(studentFound);
+	}
+	
+	@PutMapping("/addCourse/{id}")
+	public void addCourse(@PathVariable (value = "id") Long id, @RequestBody Course course) {
+		Student studentFound = studentService.findById(id);
+		
+		Set<Course> studentFoundCourses = studentFound.getCourses();
+		studentFoundCourses.add( course );
+		studentFound.setCourses( studentFoundCourses );
+		
+		studentService.updateStudent(studentFound);		
+		
 	}
 	
 	

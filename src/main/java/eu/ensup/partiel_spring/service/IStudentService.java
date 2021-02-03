@@ -15,5 +15,9 @@ public interface IStudentService {
 	void updateStudent(Student student);
 
 	void deleteStudent(Student student);
+	
+	Student getByMailAddress(String mail);
+
+	List<Student> getStudentByFirstNameAndLastName(String firstName, String lastName);
 
 }
