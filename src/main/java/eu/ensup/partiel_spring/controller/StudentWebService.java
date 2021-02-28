@@ -8,6 +8,8 @@ import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import eu.ensup.partiel_spring.entities.Course;
 import eu.ensup.partiel_spring.entities.Student;
+import eu.ensup.partiel_spring.exception.StudentNotFoundException;
 import eu.ensup.partiel_spring.repositories.StudentRepository;
 import eu.ensup.partiel_spring.service.ICourseService;
 import eu.ensup.partiel_spring.service.IStudentService;
@@ -51,10 +54,18 @@ public class StudentWebService {
 	}
 	
 	@RequestMapping(path = "/detail/{id}", method = RequestMethod.GET)
-	public Student getStudentById(@PathVariable(name = "id") Long id){
-		System.out.println("ici id de etudiant"+id);
+	public ResponseEntity getStudentById(@PathVariable(name = "id") Long id) {
+//		Student student;
+//		try {
+//			student = studentService.findById(id);
+//		} catch (Exception e) {
+//			throw new StudentNotFoundException("Student not found");
+//		}
+//		return student;
+		
 		Student student = studentService.findById(id);
-		return student;
+		return new ResponseEntity<>(student, HttpStatus.OK);
+		
 	}
 	
 	@RequestMapping(path = "/getByMail/{mail}", method = RequestMethod.GET)
