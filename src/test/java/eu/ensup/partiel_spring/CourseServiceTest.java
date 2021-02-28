@@ -33,7 +33,8 @@ public class CourseServiceTest {
 	@InjectMocks
 	private CourseServiceImpl courseService;
 	
-	@DisplayName("Test the get all courses function")
+	
+	@DisplayName("Test the get all courses method")
 	@Test
 	public void getAllCoursesTest() {
 		//Create list of courses
@@ -46,15 +47,19 @@ public class CourseServiceTest {
 		//Stubbing
 		Mockito.when(mockedCourseRepo.findAll()).thenReturn(listCourse);
 		
-		//Test
+		//Call the method
 	 	List<Course> listCourse2 = courseService.getAllCourses();
+	 	
+	 	//Test
 	 	assertEquals(course1, listCourse2.get(0));
 	 	assertEquals(course2, listCourse2.get(1));
+	 	
+	 	//Verify
 	 	assertEquals(null, Mockito.verify(mockedCourseRepo).findAll() );
 	}
 	
 	
-	@DisplayName("Test the get get by Id function")
+	@DisplayName("Test the get get by Id method")
 	@Test
 	public void getByIdTest() {
 		//Create Course
@@ -71,7 +76,7 @@ public class CourseServiceTest {
 	}
 	
 	
-	@DisplayName("Test the get by student function")
+	@DisplayName("Test the get by student method")
 	@Test
 	public void getByStudentTest() {
 		//Create Course
@@ -93,7 +98,7 @@ public class CourseServiceTest {
 	
 	
 	@RepeatedTest(10)
-	@DisplayName("Test the create course function")
+	@DisplayName("Test the create course method")
 	@Test
 	public void createCourseTest() {
 		//Create course
@@ -101,6 +106,8 @@ public class CourseServiceTest {
 		
 		//Stubbing 
 		Mockito.when(mockedCourseRepo.save(course)).thenReturn(course);
+		
+		//Call the method
 		courseService.createCourse(course);
 		
 		//Test
@@ -109,7 +116,7 @@ public class CourseServiceTest {
 	
 
 	@Disabled
-	@DisplayName("Test the update course function")
+	@DisplayName("Test the update course method")
 	@Test
 	public void updateCourseTest() {
 		//Create course
