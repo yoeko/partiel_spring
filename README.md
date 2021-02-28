@@ -17,6 +17,8 @@ Ce projet est un projet(webservice) springboot
 
 ### Tester le webservice
 
+* Créer une base de données : jpagestionensup3
+* Importer le fichier sql à la racine du projet cloné : jpagestionensup3.sql
 * Accéder en ligne de commande au projet dans le répertoire ou vous l'avez clonez
 * Exécuter le projet spingboot avec la commande: mvn spring-boot:run
 * Tester le webservice en accédant au lien suivant [http://localhost:8081/SpringMVC/servlet/student/detail/1](http://localhost:8081/SpringMVC/servlet/student/detail/1) dans votre outil de test de webservice.
