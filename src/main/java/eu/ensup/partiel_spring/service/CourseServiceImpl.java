@@ -47,5 +47,14 @@ public class CourseServiceImpl implements ICourseService {
 	public void updateCourse(Course Course) {
 		courseRepo.save(Course);
 	}
+	
+	@Override
+	public void deleteCours(Course course) {
+//		Optional<Course>  studDel = courseRepo.findById(id);
+//		if(studDel.isPresent()) {
+//			courseRepo.delete(studDel.get());
+//		}
+		courseRepo.delete(course);
+	}
 
 }

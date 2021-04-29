@@ -17,4 +17,6 @@ public interface ICourseService {
 
 	List<Course> getListCourseByStudent(Student student);
 
+	void deleteCours(Course course);
+
 }
