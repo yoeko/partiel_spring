@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 
+
 @ControllerAdvice
 public class GlobalExceptionHandler {
 	
-	@ExceptionHandler( value = { StudentNotFoundException.class })
+	@ExceptionHandler(StudentNotFoundException.class )
 	protected ResponseEntity<ErrorMessage> studentNotFoundException(StudentNotFoundException ex, WebRequest request) {
         ErrorMessage message = new ErrorMessage(
         		HttpStatus.NOT_FOUND.value(),
@@ -21,7 +22,7 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<ErrorMessage>(message, HttpStatus.NOT_FOUND);
 	}
 	
-	@ExceptionHandler(Exception.class)
+	@ExceptionHandler(NullPointerException.class)
 	public ResponseEntity<ErrorMessage> globalExceptionHandler(Exception ex, WebRequest request) {
 		ErrorMessage message = new ErrorMessage(
 				HttpStatus.INTERNAL_SERVER_ERROR.value(),
@@ -30,6 +31,9 @@ public class GlobalExceptionHandler {
         		request.getDescription(false) );
 		return new ResponseEntity<ErrorMessage>(message, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
+	
+	
+
 
 
 }

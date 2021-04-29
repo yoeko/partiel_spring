@@ -54,7 +54,7 @@ public class StudentServiceImpl implements IStudentService {
 	}
 	
 	@Override
-	public List<Student> getStudentByFirstNameAndLastName(String firstName, String lastName) 
+	public Student getStudentByFirstNameAndLastName(String firstName, String lastName) 
 	{
 		return studentRepo.findAllByFirstNameAndLastName(firstName, lastName);
 	}

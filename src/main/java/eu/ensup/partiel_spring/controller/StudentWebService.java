@@ -76,10 +76,17 @@ public class StudentWebService {
 	}
 	
 	@RequestMapping(path = "/search/{firstName}/{lastName}", method = RequestMethod.GET)
-	public List<Student> getStudentByFirstNameAndLastName(@PathVariable String firstName, @PathVariable String lastName)
+	public ResponseEntity<Object> getStudentByFirstNameAndLastName(@PathVariable String firstName, @PathVariable String lastName)
 	{
-		return studentService.getStudentByFirstNameAndLastName(firstName, lastName);
+		try {
+			return new ResponseEntity<>(studentService.getStudentByFirstNameAndLastName(firstName, lastName),HttpStatus.OK);
+		} catch (RuntimeException e) {
+			// TODO Auto-generated catch block
+			throw new StudentNotFoundException();
+		}
 	}
+	
+	
 	
 	@PostMapping("/create")
 	public void createStudent(@Validated @RequestBody Student student) {

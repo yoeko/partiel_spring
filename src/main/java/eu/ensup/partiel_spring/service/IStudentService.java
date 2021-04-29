@@ -18,6 +18,6 @@ public interface IStudentService {
 	
 	Student getByMailAddress(String mail);
 
-	List<Student> getStudentByFirstNameAndLastName(String firstName, String lastName);
+	Student getStudentByFirstNameAndLastName(String firstName, String lastName);
 
 }
