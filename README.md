@@ -32,4 +32,4 @@ Ce webservice permet la gestion d'établissement qui permet à un administrateur
 * * spring.datasource.password = 
 * Accéder en ligne de commande au projet dans le répertoire ou vous l'avez clonez
 * Exécuter le projet spingboot avec la commande: mvn spring-boot:run
-* Tester le webservice en accédant au lien suivant [http://localhost:8081/SpringMVC/servlet/student/detail/17](http://localhost:8081/SpringMVC/servlet/student/detail/1).
+* Tester le webservice en accédant au lien suivant [http://localhost:8081/SpringMVC/servlet/student/detail/17](http://localhost:8081/SpringMVC/servlet/student/detail/17).
