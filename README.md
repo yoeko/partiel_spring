@@ -10,11 +10,6 @@ Ce projet est un projet(webservice) springboot
 
 ## Démarrer
 
-### Exécuter les tests unitaire
-
-* Importer le projet dans Eclipse
-* Exécuter la classe de test src/test/java/eu/ensup/partiel_spring/CourseServiceTest.java
-
 ### Tester le webservice
 
 * Créer une base de données : jpagestionensup3
