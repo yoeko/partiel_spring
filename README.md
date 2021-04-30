@@ -2,6 +2,13 @@
 
 Ce projet est un projet(webservice) springboot
 
+## Desccription
+
+Ce webservice permet la gestion d'établissement qui permet à un administrateur de pouvoir
+* Ajouter, Modifier, Supprimer, Lister et rechercher un étudiant
+* Ajouter, Modifier, Supprimer, Lister et rechercher un cours
+* Associer un cours à un étudiant
+
 ## Prérequis
 
 * Cloner le projet. [Clonez un repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
