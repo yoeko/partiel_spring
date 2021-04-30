@@ -1,6 +1,6 @@
-<<<<<<< HEAD
+
 # GestionEcoleSpringWebService
-=======
+
 # partiel_spring
 
 Ce projet est un projet(webservice) springboot
