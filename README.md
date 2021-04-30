@@ -23,14 +23,13 @@ Ce webservice permet la gestion d'établissement qui permet à un administrateur
 
 ### Tester le webservice
 
-* Créer une base de données mysql : jpagestionensup3
-* Importer le fichier sql à la racine du projet cloné : jpagestionensup3.sql*
+* Créer une base de données mysql : jpagestionensup
+* Importer le fichier sql à la racine du projet cloné : jpagestionensup.sql
 * Modifier les informations de connexion à votre base données selon votre configuration
 * * spring.datasource.driver-class-name = com.mysql.cj.jdbc.Driver
-* * spring.datasource.url=jdbc:mysql://localhost:3306/jpagestionensup3useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+* * spring.datasource.url=jdbc:mysql://localhost:3306/jpagestionensupuseUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
 * * spring.datasource.username = root
 * * spring.datasource.password = 
 * Accéder en ligne de commande au projet dans le répertoire ou vous l'avez clonez
 * Exécuter le projet spingboot avec la commande: mvn spring-boot:run
 * Tester le webservice en accédant au lien suivant [http://localhost:8081/SpringMVC/servlet/student/detail/1](http://localhost:8081/SpringMVC/servlet/student/detail/1).
->>>>>>> e5ffa41b78229a99b65bc01d5c75f674042451d2
