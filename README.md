@@ -22,7 +22,7 @@ Ce webservice permet la gestion d'établissement qui permet à un administrateur
 
 * Créer une base de données mysql : jpagestionensup3
 * Importer le fichier sql à la racine du projet cloné : jpagestionensup3.sql*
-* Modifier les informations de connexion à votre base données selon votre configuratio
+* Modifier les informations de connexion à votre base données selon votre configuration
 * * spring.datasource.driver-class-name = com.mysql.cj.jdbc.Driver
 * * spring.datasource.url=jdbc:mysql://localhost:3306/jpagestionensup3useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
 * * spring.datasource.username = root
