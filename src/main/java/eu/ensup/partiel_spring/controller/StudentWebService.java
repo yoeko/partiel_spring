@@ -1,6 +1,13 @@
 package eu.ensup.partiel_spring.controller;
 
+
 import java.util.List;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +23,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import eu.ensup.partiel_spring.entities.Course;
 import eu.ensup.partiel_spring.entities.Student;
 import eu.ensup.partiel_spring.exception.StudentNotFoundException;
+import eu.ensup.partiel_spring.repositories.StudentRepository;
 import eu.ensup.partiel_spring.service.ICourseService;
 import eu.ensup.partiel_spring.service.IStudentService;
 
@@ -49,15 +58,7 @@ public class StudentWebService {
 	
 	@RequestMapping(path = "/detail/{id}", method = RequestMethod.GET)
 	public ResponseEntity getStudentById(@PathVariable(name = "id") Long id) {
-		//Student student;
-//		try {
-//			student = studentService.findById(id);
-//		} catch (Exception e) {
-//			throw new StudentNotFoundException();
-//		}
-		
 		Student student = studentService.findById(id);
-		
 		return new ResponseEntity<>(student, HttpStatus.OK);
 	}
 	
@@ -70,7 +71,6 @@ public class StudentWebService {
 		} catch (Exception e) {
 			throw new StudentNotFoundException();
 		}
-		//Student student = studentService.findById(id);
 	}
 	
 	@RequestMapping(path = "/getByMail/{mail}", method = RequestMethod.GET)
