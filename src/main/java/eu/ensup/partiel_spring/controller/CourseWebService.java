@@ -48,7 +48,8 @@ public class CourseWebService {
 	public void updateCourse(@PathVariable (value = "themeCourse") String themeCourse, @RequestBody Course course) {
 		
 		Course courseFound = courseService.getCourseById(themeCourse);
-		courseFound.setThemeCourse(course.getThemeCourse());
+		//courseFound.setThemeCourse(course.getThemeCourse());
+		courseFound.setNumberHours(course.getNumberHours());
 		courseService.updateCourse(courseFound);
 	}
 	
@@ -57,5 +58,4 @@ public class CourseWebService {
 		Course courseFound = courseService.getCourseById(themeCourse);
 		courseService.deleteCours(courseFound);
 	}
-
 }
