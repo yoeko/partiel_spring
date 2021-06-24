@@ -28,8 +28,8 @@ Ce webservice permet la gestion d'établissement qui permet à un administrateur
 * Modifier les informations de connexion à votre base données selon votre configuration dans le fichier /src/main/resources/application.properties
 * * spring.datasource.driver-class-name = com.mysql.cj.jdbc.Driver
 * * spring.datasource.url=jdbc:mysql://localhost:3306/jpagestionensup?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-* * spring.datasource.username = root
-* * spring.datasource.password = 
+* * spring.datasource.username = "votre_username"
+* * spring.datasource.password = "votre_password"
 * Accéder en ligne de commande au projet dans le répertoire ou vous l'avez clonez
 * Exécuter le projet spingboot avec la commande: mvn spring-boot:run
 * Tester le webservice en accédant au lien suivant [http://localhost:8081/SpringMVC/servlet/student/detail/30](http://localhost:8081/SpringMVC/servlet/student/detail/30).
