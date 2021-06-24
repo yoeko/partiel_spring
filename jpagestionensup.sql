@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 24, 2021 at 06:24 PM
+-- Generation Time: Jun 24, 2021 at 06:33 PM
 -- Server version: 8.0.25-0ubuntu0.20.04.1
 -- PHP Version: 7.4.3
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `jpagestionensup`
+-- Database: `jpagestionensup3`
 --
 
 -- --------------------------------------------------------
@@ -31,27 +31,19 @@ SET time_zone = "+00:00";
 CREATE TABLE `course` (
   `theme_course` varchar(255) NOT NULL,
   `number_hours` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
--- Table structure for table `Course`
+-- Dumping data for table `course`
 --
 
-CREATE TABLE `Course` (
-  `themeCourse` varchar(255) NOT NULL,
-  `numberHours` int NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `Course`
---
-
-INSERT INTO `Course` (`themeCourse`, `numberHours`) VALUES
-('Anglais', 7),
-('Informatique', 65),
-('Rien', 2);
+INSERT INTO `course` (`theme_course`, `number_hours`) VALUES
+('Guitare', 45),
+('Java', 35),
+('Linux', 40),
+('Maths', 20),
+('Physique', 35),
+('Piano', 50);
 
 -- --------------------------------------------------------
 
@@ -61,86 +53,14 @@ INSERT INTO `Course` (`themeCourse`, `numberHours`) VALUES
 
 CREATE TABLE `hibernate_sequence` (
   `next_val` bigint DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `hibernate_sequence`
 --
 
 INSERT INTO `hibernate_sequence` (`next_val`) VALUES
-(3),
-(3);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `Note`
---
-
-CREATE TABLE `Note` (
-  `id` int NOT NULL,
-  `value` float NOT NULL,
-  `course_themeCourse` varchar(255) DEFAULT NULL,
-  `student_id` int DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `note`
---
-
-CREATE TABLE `note` (
-  `id` int NOT NULL,
-  `value` float NOT NULL,
-  `course_themeCourse` varchar(255) DEFAULT NULL,
-  `student_id` int DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `note`
---
-
-INSERT INTO `note` (`id`, `value`, `course_themeCourse`, `student_id`) VALUES
-(1, 12, 'Anglais', 2),
-(2, 20, 'Arts', 6),
-(3, 12, 'Informatique', 20),
-(4, 15, 'Maths', 21),
-(5, 17.5, 'Anglais', 6),
-(6, 16, 'Arts', 20),
-(7, 10, 'Informatique', 21),
-(8, 18, 'Maths', 6),
-(9, 14, 'Anglais', 20),
-(10, 16.5, 'Arts', 21),
-(11, 20, 'Informatique', 6),
-(12, 7, 'Maths', 20),
-(13, 5, 'Arts', 21),
-(14, 19, 'Maths', 6),
-(15, 13, 'Informatique', 20),
-(16, 4, 'Anglais', 21);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `Student`
---
-
-CREATE TABLE `Student` (
-  `id` int NOT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `birthDate` varchar(255) DEFAULT NULL,
-  `firstName` varchar(255) DEFAULT NULL,
-  `lastName` varchar(255) DEFAULT NULL,
-  `mailAddress` varchar(255) DEFAULT NULL,
-  `numberPhone` varchar(255) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `Student`
---
-
-INSERT INTO `Student` (`id`, `address`, `birthDate`, `firstName`, `lastName`, `mailAddress`, `numberPhone`) VALUES
-(2, '11 boulevard Montaigut 94000 Créteil', '2020-11-03', 'Ahmadou', 'Lo', 'ahmadou19@gmail.com', '0755234475');
+(26);
 
 -- --------------------------------------------------------
 
@@ -156,37 +76,19 @@ CREATE TABLE `student` (
   `last_name` varchar(255) DEFAULT NULL,
   `mail_address` varchar(255) DEFAULT NULL,
   `number_phone` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
--- Table structure for table `Student_Course`
+-- Dumping data for table `student`
 --
 
-CREATE TABLE `Student_Course` (
-  `Student_id` int NOT NULL,
-  `courses_themeCourse` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `Student_course`
---
-
-CREATE TABLE `Student_course` (
-  `Student_id` int NOT NULL,
-  `courses_themeCourse` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `Student_course`
---
-
-INSERT INTO `Student_course` (`Student_id`, `courses_themeCourse`) VALUES
-(2, 'Anglais'),
-(2, 'Informatique');
+INSERT INTO `student` (`id`, `address`, `birth_date`, `first_name`, `last_name`, `mail_address`, `number_phone`) VALUES
+(17, '9 Avenue de Villepreux', '2021-04-12', 'Mamadou', 'Yoeko', 'ju@jaja@com', '+33751100363'),
+(18, '26 Avenue Robert Surcouf\r\nB8', '2021-04-28', 'Toto', 'Ttat', 'toto@tata.com', '+33751100363'),
+(19, '9 Avenue de Villepreux', '2021-04-27', 'Jules', 'Coulibaly', 'ju@jaja@com', '+33751100363'),
+(21, '9 Avenue de Villepreux', '2021-04-27', 'Jules', 'Martin', 'mama@coul.fr', '+33751100363'),
+(23, 'Paris', '2021-04-13', 'Marc', 'Joel', 'de@de', '+33751100363'),
+(24, 'Paris', '2021-05-04', 'Jean ', 'Marc', 'Jean@marc.fr', '0751100363');
 
 -- --------------------------------------------------------
 
@@ -197,7 +99,7 @@ INSERT INTO `Student_course` (`Student_id`, `courses_themeCourse`) VALUES
 CREATE TABLE `student_course` (
   `theme_course` varchar(255) NOT NULL,
   `id` bigint NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -208,27 +110,7 @@ CREATE TABLE `student_course` (
 CREATE TABLE `student_courses` (
   `student_id` bigint NOT NULL,
   `courses_theme_course` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `User`
---
-
-CREATE TABLE `User` (
-  `id` int NOT NULL,
-  `login` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `profil` varchar(255) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `User`
---
-
-INSERT INTO `User` (`id`, `login`, `password`, `profil`) VALUES
-(1, 'toto', 'toto', 'D');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -240,21 +122,15 @@ CREATE TABLE `user` (
   `id` int NOT NULL,
   `login` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `profil` varchar(255) DEFAULT NULL,
-  `user_id` int DEFAULT NULL,
-  `username` varchar(255) DEFAULT NULL,
-  `role` varchar(255) DEFAULT NULL,
-  `enabled` tinyint DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `profil` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `login`, `password`, `profil`, `user_id`, `username`, `role`, `enabled`) VALUES
-(1, 'toto', '$2y$07$SWlKSM3V6eXFgTu4b1ks4eFTkAy0XPJEvPKjAh8sfV2imQtHCj96e', 'ADMIN', 1, 'toto', 'D', NULL),
-(2, NULL, '$2a$10$nLG5/TyJ4CB3KxfjMOWAD.FNMgdMoxskqw2qfu5qz8W5jZhD/kfHC', NULL, NULL, 'fati', 'R', NULL),
-(3, NULL, '$2a$10$pwBvFXlUb9uiYkHo/ly1WuToW2uD5zrJ/Powzcn0WoZrJzi2fwmNG', NULL, NULL, 'jules', NULL, NULL);
+INSERT INTO `user` (`id`, `login`, `password`, `profil`) VALUES
+(1, 'toto', 'toto', 'D');
 
 --
 -- Indexes for dumped tables
@@ -267,52 +143,10 @@ ALTER TABLE `course`
   ADD PRIMARY KEY (`theme_course`);
 
 --
--- Indexes for table `Course`
---
-ALTER TABLE `Course`
-  ADD PRIMARY KEY (`themeCourse`);
-
---
--- Indexes for table `Note`
---
-ALTER TABLE `Note`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `FKmugpg56w1dfd00m3aoa8sx6fp` (`course_themeCourse`),
-  ADD KEY `FK9c10dmjliyhtgsg9n2fv2ukvv` (`student_id`);
-
---
--- Indexes for table `note`
---
-ALTER TABLE `note`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `FKmugpg56w1dfd00m3aoa8sx6fp` (`course_themeCourse`),
-  ADD KEY `FK9c10dmjliyhtgsg9n2fv2ukvv` (`student_id`);
-
---
--- Indexes for table `Student`
---
-ALTER TABLE `Student`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `student`
 --
 ALTER TABLE `student`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `Student_Course`
---
-ALTER TABLE `Student_Course`
-  ADD KEY `FKbwm9j0u941p56cdsugy7e9c22` (`courses_themeCourse`),
-  ADD KEY `FK1xm2hei9chmwoqf2wfm104nmg` (`Student_id`);
-
---
--- Indexes for table `Student_course`
---
-ALTER TABLE `Student_course`
-  ADD KEY `FKbwm9j0u941p56cdsugy7e9c22` (`courses_themeCourse`),
-  ADD KEY `FK1xm2hei9chmwoqf2wfm104nmg` (`Student_id`);
 
 --
 -- Indexes for table `student_course`
@@ -329,38 +163,10 @@ ALTER TABLE `student_courses`
   ADD KEY `FKfehdbq602a6un9cuy6hogmtgf` (`courses_theme_course`);
 
 --
--- Indexes for table `User`
---
-ALTER TABLE `User`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `Note`
---
-ALTER TABLE `Note`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `note`
---
-ALTER TABLE `note`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
