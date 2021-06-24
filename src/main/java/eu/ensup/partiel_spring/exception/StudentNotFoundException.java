@@ -5,7 +5,7 @@ public class StudentNotFoundException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 	
 	public StudentNotFoundException() {
-		this("Implossible de trouvé cet étudiant");
+		this("Impossible de trouver cet étudiant");
 	}
 
 	public StudentNotFoundException(String message) {

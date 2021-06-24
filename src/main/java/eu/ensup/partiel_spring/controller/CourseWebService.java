@@ -52,7 +52,7 @@ public class CourseWebService {
 		courseService.updateCourse(courseFound);
 	}
 	
-	@GetMapping("/delete/{themeCourse}")
+	@DeleteMapping("/delete/{themeCourse}")
 	public void deleteCours(@PathVariable (value = "themeCourse") String themeCourse) {
 		Course courseFound = courseService.getCourseById(themeCourse);
 		courseService.deleteCours(courseFound);

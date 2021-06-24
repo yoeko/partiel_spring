@@ -16,6 +16,10 @@ public class ErrorMessage {
 		this.description = description;
 	}
 	
+	public ErrorMessage() {
+		super();
+	}
+
 	public int getStatusCode() {
 	    return statusCode;
 	}

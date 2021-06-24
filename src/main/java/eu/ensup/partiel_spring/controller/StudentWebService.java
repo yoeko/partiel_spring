@@ -55,16 +55,16 @@ public class StudentWebService {
 	
 	@RequestMapping(path = "/detail/{id}", method = RequestMethod.GET)
 	public ResponseEntity getStudentById(@PathVariable(name = "id") Long id) {
-//		Student student;
-//		try {
-//			student = studentService.findById(id);
-//		} catch (Exception e) {
-//			throw new StudentNotFoundException("Student not found");
-//		}
-//		return student;
-		
-		Student student = studentService.findById(id);
+		Student student;
+		try {
+			student = studentService.findById(id);
+		} catch (Exception e) {
+			throw new StudentNotFoundException();
+		}
 		return new ResponseEntity<>(student, HttpStatus.OK);
+		
+//		Student student = studentService.findById(id);
+//		return new ResponseEntity<>(student, HttpStatus.OK);
 		
 	}
 	
@@ -76,9 +76,18 @@ public class StudentWebService {
 	}
 	
 	@RequestMapping(path = "/search/{firstName}/{lastName}", method = RequestMethod.GET)
-	public List<Student> getStudentByFirstNameAndLastName(@PathVariable String firstName, @PathVariable String lastName)
+	public ResponseEntity getStudentByFirstNameAndLastName(@PathVariable String firstName, @PathVariable String lastName)
 	{
-		return studentService.getStudentByFirstNameAndLastName(firstName, lastName);
+		Student student;
+		try {
+			student = studentService.getStudentByFirstNameAndLastName(firstName, lastName);
+			return new ResponseEntity<>(student, HttpStatus.OK);
+		} catch (Exception e) {
+			throw new StudentNotFoundException("Student not found");
+		}
+//		return new ResponseEntity<>(student, HttpStatus.OK);
+		
+//		return studentService.getStudentByFirstNameAndLastName(firstName, lastName);
 	}
 	
 	@PostMapping("/create")
