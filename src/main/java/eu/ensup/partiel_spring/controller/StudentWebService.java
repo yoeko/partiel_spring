@@ -58,7 +58,6 @@ public class StudentWebService {
 	
 	@RequestMapping(path = "/detail/{id}", method = RequestMethod.GET)
 	public ResponseEntity getStudentById(@PathVariable(name = "id") Long id) {
-<<<<<<< HEAD
 		Student student;
 		try {
 			student = studentService.findById(id);
@@ -70,21 +69,6 @@ public class StudentWebService {
 //		Student student = studentService.findById(id);
 //		return new ResponseEntity<>(student, HttpStatus.OK);
 		
-=======
-		Student student = studentService.findById(id);
-		return new ResponseEntity<>(student, HttpStatus.OK);
-	}
-	
-	@RequestMapping(path = "/search/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Object> getSearchStudentById(@PathVariable(name = "id") Long id) {
-		Student student;
-		try {
-			student = studentService.findById(id);
-			return new ResponseEntity<>(student, HttpStatus.OK);
-		} catch (Exception e) {
-			throw new StudentNotFoundException();
-		}
->>>>>>> ac02d6b0d652228173f76a278dd698b9bba3b46e
 	}
 	
 	@RequestMapping(path = "/getByMail/{mail}", method = RequestMethod.GET)
