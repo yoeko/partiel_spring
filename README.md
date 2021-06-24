@@ -15,7 +15,7 @@ Ce webservice permet la gestion d'établissement qui permet à un administrateur
 ## Prérequis
 
 * Cloner le projet. [Clonez un repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
-* Editeur de code. [Eclipse](https://www.eclipse.org/downloads/packages/installer)
+* Un Editeur de code.
 * Logiciel pour pour tester des webservices http. [Postman](https://www.postman.com/downloads/)
 * [MySql](https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/)
 
